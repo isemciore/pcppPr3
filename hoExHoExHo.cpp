@@ -14,16 +14,16 @@ hoExHoExHo::hoExHoExHo() {
     arcLength = integrate(a,b);
 }
 double hoExHoExHo::xp(double p) {
-    if (p>=-10 && p<=5) {
+    if (p>=-10-1e-5 && p<=5+1e-5) {
         return p;
     }
     throw::std::out_of_range("xp OUT OF DOMAIN");
 }
 
 double hoExHoExHo::yp(double p) {
-    if (p<-3 && p >=-10){
+    if (p<-3+1e-5 && p >=-10-1e-5){
         return 1.0/2.0*1.0/(1+exp(-3*(p+6)));
-    }else if(p>=-3 && p <=5){
+    }else if(p>=-3 && p <=5+1e-5){
         return 1.0/2.0*1.0/(1+exp(3*p));
     }
     throw::std::out_of_range("OUT OF DOMAIN YP");
@@ -31,16 +31,16 @@ double hoExHoExHo::yp(double p) {
 }
 
 double hoExHoExHo::dxp(double p) {
-    if (p>=-10 && p<=5) {
+    if (p>=-10-1e-5 && p<=5+1e-5) {
         return 1;
     }
     throw::std::out_of_range("dxp OUT OF DOMAIN");
 }
 
 double hoExHoExHo::dyp(double p) {
-    if(p < -3 && p >= -10) {
+    if(p < -3+1e-5 && p >= -10-1e-5) {
         return (3 * exp(3 * (p + 6))) / (2 * pow(exp(3 * (p + 6)) + 1, 2));
-    }else if (p>=-3 && p <= 5){
+    }else if (p>=-3 && p <= 5 + 1e-5){
         return -3*exp(3*p)/(2*pow(exp(3*p)+1,2));
     }
     throw::std::out_of_range("OUT OF DOMAIN DYP");

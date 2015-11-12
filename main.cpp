@@ -12,6 +12,7 @@ int main() {
 
     curvebase* cbBottomPtr;
     hoExHoExHo bottomCurve = hoExHoExHo();
+    std::cout << bottomCurve.getDensityEvalTimes() << "\n";
     cbBottomPtr = &bottomCurve;
     //for(double s = 0; s <=1; s=s+0.1){
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
@@ -32,9 +33,11 @@ int main() {
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
     //}
     domain derp(bottomCurve,leftCurve,rightCurve,topCurve);
-    derp.generate_Grid(10,20);
+    derp.generate_Grid(1000,1000);
 
     cout << "attempt write to file!" << endl;
     derp.writeBinFile("xValues","yValues");
+
+    std::cout << bottomCurve.getDensityEvalTimes() << "\n";
     return 0;
 }

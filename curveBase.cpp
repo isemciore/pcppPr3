@@ -67,15 +67,19 @@ double curvebase::integrate(double a, double b) {
     double (*fun) (double);
     //fun = [this] (double p) -> double { return sqrt(pow(dxp(p),2) + pow(dyp(p),2));};
     //fun = &curvebase::intFunDensity;
-    std::map<double,double>::iterator itLB = pToIntValues.lower_bound(b);
-    double retValues;
-    if (itLB==pToIntValues.end()){
-        retValues = ASI(a,b,1e-10,100);
+    if (quickInt){
+        std::map<double,double>::iterator itLB = pToIntValues.lower_bound(b);
+        double retValues;
+        if (itLB==pToIntValues.end()){//Never integrated before
+            retValues = ASI(a,b,1e-10,100);
+        }else{
+            retValues = itLB->second + ASI(itLB->first,b,1.0e-10,100);
+        }
+        pToIntValues.insert(std::make_pair(b,retValues));
+        return retValues;
     }else{
-        retValues = itLB->second + ASI(itLB->first,b,1e-10,100);
+        return ASI(a,b,1e-10,100);
     }
-    pToIntValues.insert(std::make_pair(b,retValues));
-    return retValues;
 }
 
 
@@ -125,9 +129,9 @@ double curvebase::ASIHelp(const double& a,const double& b,const double& tol, con
     if(recDepth < 1 || fabs(inteValue-prevIVal) < 15*tol){
         return inteValue + (inteValue-prevIVal)/15;
     }
+
     return ASIHelp(a,c,tol,inteValLeft,fun_a,fun_c,fun_d,recDepth-1) +
            ASIHelp(c,b,tol,inteValRight,fun_c,fun_b,fun_e,recDepth-1);
-
 }
 
 std::size_t curvebase::getDensityEvalTimes() const {

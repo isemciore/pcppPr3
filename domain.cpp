@@ -53,7 +53,7 @@ domain& domain::operator=(domain &&src) {
 }
 
 void domain::generate_Grid(std::size_t m, std::size_t n) {
-    auto getXc = [this](double xi, double eta)->double{
+    auto getXc = [&](double xi, double eta)->double{
         return (1-xi)*sides[1]->x(eta) + xi*sides[2]->x(eta) +
                 (1-eta)*sides[0]->x(xi) + eta*sides[3]->x(xi)
                 -(1-xi)*(1-eta)*sides[0]->x(0)-xi*(1-eta)*sides[2]->x(0)

@@ -8,6 +8,7 @@
 #include <map>
 #include <cmath>
 class curvebase {
+private:
 protected:
     std::size_t densityEvalTimes = 0;
     double pmin;
@@ -19,6 +20,10 @@ protected:
     double arcLength;
     mutable std::map<double,double> sToPmap;
     mutable std::map<double,double> pToIntValues;
+
+    mutable std::map<double,double> endIntLocalArea;
+
+
     void newtonStoP(double);
     inline double intFunDensity(double p);
     double ASI(const double&,const double&,const double, unsigned);
@@ -40,7 +45,8 @@ public:
     virtual ~curvebase();
     virtual curvebase & operator=(const curvebase &);
 
-
+    bool quickInt = true;//Attempt to speed up by lowering
+    //number of integration needed to be done
     std::size_t getDensityEvalTimes() const;
 };
 
