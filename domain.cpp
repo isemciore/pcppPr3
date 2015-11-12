@@ -77,8 +77,8 @@ void domain::generate_Grid(std::size_t m, std::size_t n) {
     _x = new double[_m*_n];
     _y = new double[_m*_n];
 
-    double deltaXi = 1/(m-1);
-    double deltaEta= 1/(n-1);
+    double deltaXi = 1.0/(m-1);
+    double deltaEta= 1.0/(n-1);
     double xi= 0;
     double eta=0;
     for(std::size_t j=0;j < n; j++){
@@ -87,9 +87,11 @@ void domain::generate_Grid(std::size_t m, std::size_t n) {
             eta=j*deltaEta;
             _x[i+j*m] = getXc(xi,eta);
             _y[i+j*m] = getYc(xi,eta);
-
+            /*
+            std::cout << "xi: " <<xi<<" eta: "<<eta<<"\n";
             std::cout << "i: " <<i<<" j: "<<j<<"\n";
             std::cout << "x: "<< _x[i+j*m]<<" y: "<<_y[i+j*m]<<"\n";
+            */
         }
     }
 
@@ -124,5 +126,12 @@ bool domain::writeBinFile(std::string xValueFileName, std::string yValueFileName
     fp = fopen(yValueFileName.c_str(),"w+b");
     fwrite(_y, sizeof(double),_m*_n,fp);
     fclose(fp);
+
+    fp = fopen("dataFormat","w+b");
+    fwrite(&_m, sizeof(size_t),1,fp);
+    fwrite(&_n, sizeof(size_t),1,fp);
+    fclose(fp);
+
+
     return true;
 }

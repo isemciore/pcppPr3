@@ -9,36 +9,36 @@ using namespace std;
 
 int main() {
     //COORDINATE 0.0 IS BOTTOM LEFT//
+
     curvebase* cbBottomPtr;
     hoExHoExHo bottomCurve = hoExHoExHo();
     cbBottomPtr = &bottomCurve;
 
-    for(double s = 0; s <=1; s=s+0.1){
-        std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
-    }
+    //for(double s = 0; s <=1; s=s+0.1){
+    //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
+    //}
 
 
     vertBotToTop rightCurve = vertBotToTop();
     cbBottomPtr = &rightCurve;
-    for(double s = 0; s <=1; s=s+0.1){
-        std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
-    }
+    //for(double s = 0; s <=1; s=s+0.1){
+    //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
+    //}
 
     horzRightToLeft topCurve = horzRightToLeft();
     cbBottomPtr = &topCurve;
-    for(double s = 0; s <=1; s=s+0.1){
-        std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
-    }
+    //for(double s = 0; s <=1; s=s+0.1){
+    //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
+    //}
 
     leftVertBotToTop leftCurve = leftVertBotToTop();
     cbBottomPtr = &leftCurve;
-    for(double s = 0; s <=1; s=s+0.1){
-        std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
-    }
-
+    //for(double s = 0; s <=1; s=s+0.1){
+    //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
+    //}
 
     domain derp(bottomCurve,leftCurve,rightCurve,topCurve);
-    derp.generate_Grid(2,2);
+    derp.generate_Grid(100,100);
 
 
     cout << "atempt write to file!" << endl;

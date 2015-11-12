@@ -34,16 +34,16 @@ void curvebase::newtonStoP(double s){
     double p_next;
     double stepSize = 10;
     double intValue;
+    /*
     std::map<double,double> integratedValueMap;
     integratedValueMap.insert(std::make_pair(a,0.0));
-
     auto intHelp= [this,&integratedValueMap](double p)->double{
         auto iterator = integratedValueMap.lower_bound(p);
         double leftInt = iterator->second;
         double remain = integrate(iterator->first,p);
         integratedValueMap.insert(std::make_pair(p,leftInt+remain));
         return leftInt+remain;
-    };
+    };*/
 
     while(stepSize > 1e-10){
         double intHelper = integrate(a,p_curr);

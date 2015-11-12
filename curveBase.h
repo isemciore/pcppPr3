@@ -17,7 +17,7 @@ protected:
     double length;
     double arcLength;
     mutable std::map<double,double> sToPmap;
-
+    mutable std::map<double,double> pToIntValues;
     void newtonStoP(double);
     inline double intFunDensity(double p);
     double ASI(double&,double&,double_t,unsigned);
