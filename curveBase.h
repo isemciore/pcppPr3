@@ -9,6 +9,7 @@
 #include <cmath>
 class curvebase {
 protected:
+    std::size_t densityEvalTimes = 0;
     double pmin;
     double pmax;
     double a;
@@ -20,8 +21,9 @@ protected:
     mutable std::map<double,double> pToIntValues;
     void newtonStoP(double);
     inline double intFunDensity(double p);
-    double ASI(double&,double&,double_t,unsigned);
-    double ASIHelp(double&, double&, double&,double& , double& , double& , double& , unsigned );
+    double ASI(const double&,const double&,const double, unsigned);
+    double ASIHelp(const double&,const double&,const double&,
+                   const double& ,const double& ,const double& , const double& , unsigned ) ;
 
     virtual double xp(double p) = 0;
     virtual double yp(double p) = 0;
@@ -39,7 +41,7 @@ public:
     virtual curvebase & operator=(const curvebase &);
 
 
-
+    std::size_t getDensityEvalTimes() const;
 };
 
 

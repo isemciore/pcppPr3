@@ -44,7 +44,6 @@ void curvebase::newtonStoP(double s){
         integratedValueMap.insert(std::make_pair(p,leftInt+remain));
         return leftInt+remain;
     };*/
-
     while(stepSize > 1e-10){
         double intHelper = integrate(a,p_curr);
         //double intHelper = intHelp(p_curr);
@@ -60,6 +59,7 @@ void curvebase::newtonStoP(double s){
 
 
 double curvebase::intFunDensity(double p){
+    densityEvalTimes++;
     return sqrt(pow(dxp(p),2) + pow(dyp(p),2));
 }
 
@@ -67,8 +67,15 @@ double curvebase::integrate(double a, double b) {
     double (*fun) (double);
     //fun = [this] (double p) -> double { return sqrt(pow(dxp(p),2) + pow(dyp(p),2));};
     //fun = &curvebase::intFunDensity;
-
-    return ASI(a,b,1e-10,100);
+    std::map<double,double>::iterator itLB = pToIntValues.lower_bound(b);
+    double retValues;
+    if (itLB==pToIntValues.end()){
+        retValues = ASI(a,b,1e-10,100);
+    }else{
+        retValues = itLB->second + ASI(itLB->first,b,1e-10,100);
+    }
+    pToIntValues.insert(std::make_pair(b,retValues));
+    return retValues;
 }
 
 
@@ -90,7 +97,7 @@ curvebase::~curvebase() {}
 
 
 
-double curvebase::ASI(double& a, double& b,double tol = 1e-10, unsigned recDepth = 100){
+double curvebase::ASI(const double& a,const double& b, const double tol = 1e-10,unsigned recDepth = 100){
     double c = (a+b)/2;
     double width = b-a;
     double fun_a = intFunDensity(a);
@@ -102,7 +109,8 @@ double curvebase::ASI(double& a, double& b,double tol = 1e-10, unsigned recDepth
 
 //INTEGRATION POINTS
 //A D C E B
-double curvebase::ASIHelp(double& a, double& b, double& tol,double& prevIVal, double& fun_a, double& fun_b, double& fun_c, unsigned recDepth ){
+double curvebase::ASIHelp(const double& a,const double& b,const double& tol, const double& prevIVal,
+                          const double& fun_a, const double& fun_b, const double& fun_c,unsigned recDepth ){
     double c = (a+b)/2;
     double subWidth = (b-a)/2;
     double d = (a+c)/2;
@@ -120,4 +128,8 @@ double curvebase::ASIHelp(double& a, double& b, double& tol,double& prevIVal, do
     return ASIHelp(a,c,tol,inteValLeft,fun_a,fun_c,fun_d,recDepth-1) +
            ASIHelp(c,b,tol,inteValRight,fun_c,fun_b,fun_e,recDepth-1);
 
+}
+
+std::size_t curvebase::getDensityEvalTimes() const {
+    return densityEvalTimes;
 }
