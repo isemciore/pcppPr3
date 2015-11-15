@@ -31,7 +31,7 @@ int main() {
     cbBottomPtr = &leftCurve;
     //for(double s = 0; s <=1; s=s+0.1){
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
-    //}
+    //}//
     domain derp(bottomCurve,leftCurve,rightCurve,topCurve);
     derp.generate_Grid(1000,1000);
 
