@@ -35,8 +35,11 @@ int main() {
     domain derp(bottomCurve,leftCurve,rightCurve,topCurve);
     derp.generate_Grid(1000,1000);
 
+    derp.stretch_grid();
+
     cout << "attempt write to file!" << endl;
     derp.writeBinFile("xValues","yValues");
+
 
     std::cout << bottomCurve.getDensityEvalTimes() << "\n";
     return 0;

@@ -32,6 +32,10 @@ domain::~domain() {
     if (_m>0){
         delete[] _x;
         delete[] _y;
+        if(alt_y_exist){
+            delete[] alternative_y;
+            alt_y_exist = false;
+        }
     }
 
 }
@@ -127,6 +131,13 @@ bool domain::writeBinFile(std::string xValueFileName, std::string yValueFileName
     fwrite(_y, sizeof(double),_m*_n,fp);
     fclose(fp);
 
+    if(alt_y_exist){
+        fp = fopen((yValueFileName.append("altY")).c_str(),"w+b");
+        fwrite(alternative_y, sizeof(double),_m*_n,fp);
+        fclose(fp);
+    }
+
+
     fp = fopen("dataFormat","w+b");
     fwrite(&_m, sizeof(size_t),1,fp);
     fwrite(&_n, sizeof(size_t),1,fp);
@@ -134,4 +145,14 @@ bool domain::writeBinFile(std::string xValueFileName, std::string yValueFileName
 
 
     return true;
+}
+
+
+
+void domain::stretch_grid() {
+    double div_fct = 3.0/(exp(1.5)-1);
+    alternative_y = new double[_m*_n];
+    for(std::size_t i = 0; i < _m*_n;i++){
+        alternative_y[i] = div_fct*(exp(0.5*_y[i])-1);
+    }
 }

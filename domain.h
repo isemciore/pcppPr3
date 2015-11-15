@@ -16,6 +16,9 @@ private:
 
     bool check_consistency();
 
+    bool alt_y_exist;
+    double *alternative_y;
+
 public:
     domain(curvebase& bt, curvebase& lt,
            curvebase& rt, curvebase& tp);
@@ -28,8 +31,9 @@ public:
 
     void generate_Grid(std::size_t m, std::size_t n);
 
-
+    void stretch_grid();
     bool writeBinFile(std::string xValueFileName,std::string yValueFileName);
+
 };
 
 
