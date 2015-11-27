@@ -8,9 +8,9 @@
 
 #include "curveBase.h"
 
-class vertBotToTop :public curvebase {
+class RightCurve : public curvebase {
 public:
-    vertBotToTop();
+    RightCurve();
 protected:
     virtual double xp(double p)  override ;
 

@@ -8,9 +8,9 @@
 
 #include "curveBase.h"
 
-class horzRightToLeft :public curvebase {
+class TopCurve : public curvebase {
 public:
-    horzRightToLeft();
+    TopCurve();
 
 protected:
     virtual double xp(double p) override ;

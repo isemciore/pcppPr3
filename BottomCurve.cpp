@@ -3,9 +3,9 @@
 //
 
 #include <iostream>
-#include "hoExHoExHo.h"
+#include "BottomCurve.h"
 
-hoExHoExHo::hoExHoExHo() {
+BottomCurve::BottomCurve() {
     pmin_ = -10;
     pmax_ = 5;
     a_ = -10;
@@ -13,14 +13,14 @@ hoExHoExHo::hoExHoExHo() {
     int rev = 0; //ANTI CLOCKWISE START FROM SOUTHWEST CORNER
     arcLength_ = integrate(a_, b_);
 }
-double hoExHoExHo::xp(double p) {
+double BottomCurve::xp(double p) {
     if (p>=-10-1e-5 && p<=5+1e-5) { //Corner for both curves does not lie on exactly the same "point"
         return p;
     }
     throw::std::out_of_range("xp OUT OF DOMAIN");
 }
 
-double hoExHoExHo::yp(double p) {
+double BottomCurve::yp(double p) {
     if (p<-3+1e-5 && p >=-10-1e-5){
         return 1.0/2.0*1.0/(1+exp(-3*(p+6)));
     }else if(p>=-3 && p <=5+1e-5){
@@ -30,14 +30,14 @@ double hoExHoExHo::yp(double p) {
 
 }
 
-double hoExHoExHo::dxp(double p) {
+double BottomCurve::dxp(double p) {
     if (p>=-10-1e-5 && p<=5+1e-5) {
         return 1;
     }
     throw::std::out_of_range("dxp OUT OF DOMAIN");
 }
 
-double hoExHoExHo::dyp(double p) {
+double BottomCurve::dyp(double p) {
     if(p < -3+1e-5 && p >= -10-1e-5) {
         return (3 * exp(3 * (p + 6))) / (2 * pow(exp(3 * (p + 6)) + 1, 2));
     }else if (p>=-3 && p <= 5 + 1e-5){

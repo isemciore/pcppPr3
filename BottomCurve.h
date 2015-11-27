@@ -8,9 +8,9 @@
 
 #include "curveBase.h"
 
-class hoExHoExHo : public curvebase {
+class BottomCurve : public curvebase {
 public:
-    hoExHoExHo();
+    BottomCurve();
 
 protected:
     virtual double xp(double p) override;

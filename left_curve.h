@@ -8,9 +8,9 @@
 
 #include "curveBase.h"
 
-class leftVertBotToTop : public curvebase{
+class LeftCurve : public curvebase{
 public:
-    leftVertBotToTop();
+    LeftCurve();
 
 
 protected:

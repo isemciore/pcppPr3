@@ -2,9 +2,9 @@
 // Created by erik on 2015-11-11.
 //
 
-#include "rightVertBotToTop.h"
+#include "right_curve.h"
 
-vertBotToTop::vertBotToTop() {
+vertBotToTop::RightCurve() {
     pmin_ = 0;
     pmax_ = 3;
     a_ = 0;

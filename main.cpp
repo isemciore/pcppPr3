@@ -1,32 +1,32 @@
 #include <iostream>
 #include "curveBase.h"
-#include "hoExHoExHo.h"
-#include "rightVertBotToTop.h"
-#include "horzLeftToRight.h"
-#include "leftVertBotToTot.h"
+#include "BottomCurve.h"
+#include "right_curve.h"
+#include "top_curve.h"
+#include "left_curve.h"
 #include "domain.h"
 using namespace std;
 
 int main() {
     //COORDINATE 0.0 IS BOTTOM LEFT//
     curvebase* cbBottomPtr;
-    hoExHoExHo bottomCurve = hoExHoExHo();
+    BottomCurve bottomCurve = BottomCurve();
     std::cout << bottomCurve.getDensityEvalTimes() << "\n";
     cbBottomPtr = &bottomCurve;
     //for(double s = 0; s <=1; s=s+0.1){ //Manual check for "correctness"
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
     //}
-    vertBotToTop rightCurve = vertBotToTop();
+    RightCurve rightCurve = RightCurve();
     cbBottomPtr = &rightCurve;
     //for(double s = 0; s <=1; s=s+0.1){
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
     //}
-    horzRightToLeft topCurve = horzRightToLeft();
+    TopCurve topCurve = TopCurve();
     cbBottomPtr = &topCurve;
     //for(double s = 0; s <=1; s=s+0.1){
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
     //}
-    leftVertBotToTop leftCurve = leftVertBotToTop();
+    LeftCurve leftCurve = LeftCurve();
     cbBottomPtr = &leftCurve;
     //for(double s = 0; s <=1; s=s+0.1){
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";

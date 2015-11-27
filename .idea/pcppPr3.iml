@@ -8,15 +8,15 @@
       <sourceFolder url="file://$MODULE_DIR$/curveBase.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/domain.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/domain.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/hoExHoExHo.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/hoExHoExHo.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/horzLeftToRight.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/horzLeftToRight.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/leftVertBotToTot.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/leftVertBotToTot.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BottomCurve.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BottomCurve.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/top_curve.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/top_curve.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/left_curve.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/left_curve.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/rightVertBotToTop.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/rightVertBotToTop.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/right_curve.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/right_curve.h" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/obj" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -28,7 +28,6 @@
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/cilk" />
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/objc" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/sanitizer" />
           <root url="file:///usr/local/include" />
         </CLASSES>
@@ -37,7 +36,6 @@
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/cilk" />
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/objc" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/sanitizer" />
           <root url="file:///usr/local/include" />
         </SOURCES>
