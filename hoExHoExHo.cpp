@@ -6,15 +6,15 @@
 #include "hoExHoExHo.h"
 
 hoExHoExHo::hoExHoExHo() {
-    pmin = -10;
-    pmax = 5;
-    a = -10;
-    b = 5;
+    pmin_ = -10;
+    pmax_ = 5;
+    a_ = -10;
+    b_ = 5;
     int rev = 0; //ANTI CLOCKWISE START FROM SOUTHWEST CORNER
-    arcLength = integrate(a,b);
+    arcLength_ = integrate(a_, b_);
 }
 double hoExHoExHo::xp(double p) {
-    if (p>=-10-1e-5 && p<=5+1e-5) {
+    if (p>=-10-1e-5 && p<=5+1e-5) { //Corner for both curves does not lie on exactly the same "point"
         return p;
     }
     throw::std::out_of_range("xp OUT OF DOMAIN");

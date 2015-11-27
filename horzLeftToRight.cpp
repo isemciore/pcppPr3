@@ -5,12 +5,12 @@
 #include "horzLeftToRight.h"
 
 horzRightToLeft::horzRightToLeft() {
-    pmin = -10;
-    pmax = 5;
-    a = -10;
-    b = 5;
+    pmin_ = -10;
+    pmax_ = 5;
+    a_ = -10;
+    b_ = 5;
     int rev = 2;
-    arcLength = integrate(a,b);
+    arcLength_ = integrate(a_, b_);
 }
 
 double horzRightToLeft::xp(double p) {

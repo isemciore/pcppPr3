@@ -5,12 +5,12 @@
 #include "rightVertBotToTop.h"
 
 vertBotToTop::vertBotToTop() {
-    pmin = 0;
-    pmax = 3;
-    a = 0;
-    b = 3;
+    pmin_ = 0;
+    pmax_ = 3;
+    a_ = 0;
+    b_ = 3;
     int rev = 1;
-    arcLength = integrate(a,b);
+    arcLength_ = integrate(a_, b_);
 
 }
 

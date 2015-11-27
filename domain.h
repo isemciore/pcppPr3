@@ -31,7 +31,6 @@ public:
 
     void generate_Grid(std::size_t m, std::size_t n);
 
-    void stretch_grid();
     bool writeBinFile(std::string xValueFileName,std::string yValueFileName);
 
 };

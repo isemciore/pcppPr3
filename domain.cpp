@@ -137,8 +137,8 @@ bool domain::writeBinFile(std::string xValueFileName, std::string yValueFileName
         fclose(fp);
     }
 
-
-    fp = fopen("dataFormat","w+b");
+    std::string dataform = xValueFileName+"dataFormat";
+    fp = fopen(dataform.c_str(),"w+b");
     fwrite(&_m, sizeof(size_t),1,fp);
     fwrite(&_n, sizeof(size_t),1,fp);
     fclose(fp);
@@ -148,11 +148,3 @@ bool domain::writeBinFile(std::string xValueFileName, std::string yValueFileName
 }
 
 
-
-void domain::stretch_grid() {
-    double div_fct = 3.0/(exp(1.5)-1);
-    alternative_y = new double[_m*_n];
-    for(std::size_t i = 0; i < _m*_n;i++){
-        alternative_y[i] = div_fct*(exp(0.5*_y[i])-1);
-    }
-}

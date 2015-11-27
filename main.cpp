@@ -9,12 +9,11 @@ using namespace std;
 
 int main() {
     //COORDINATE 0.0 IS BOTTOM LEFT//
-
     curvebase* cbBottomPtr;
     hoExHoExHo bottomCurve = hoExHoExHo();
     std::cout << bottomCurve.getDensityEvalTimes() << "\n";
     cbBottomPtr = &bottomCurve;
-    //for(double s = 0; s <=1; s=s+0.1){
+    //for(double s = 0; s <=1; s=s+0.1){ //Manual check for "correctness"
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
     //}
     vertBotToTop rightCurve = vertBotToTop();
@@ -32,13 +31,11 @@ int main() {
     //for(double s = 0; s <=1; s=s+0.1){
     //    std::cout << "( "<< cbBottomPtr->x(s) <<"," << cbBottomPtr->y(s)<<" )\n";
     //}//
-    domain derp(bottomCurve,leftCurve,rightCurve,topCurve);
-    derp.generate_Grid(1000,1000);
-
-    derp.stretch_grid();
+    domain four_side_domain(bottomCurve,leftCurve,rightCurve,topCurve);
+    four_side_domain.generate_Grid(20,50);
 
     cout << "attempt write to file!" << endl;
-    derp.writeBinFile("xValues","yValues");
+    four_side_domain.writeBinFile("xValues20","yValues50");
 
 
     std::cout << bottomCurve.getDensityEvalTimes() << "\n";
