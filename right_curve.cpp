@@ -4,7 +4,7 @@
 
 #include "right_curve.h"
 
-vertBotToTop::RightCurve() {
+RightCurve::RightCurve() {
     pmin_ = 0;
     pmax_ = 3;
     a_ = 0;
@@ -14,18 +14,18 @@ vertBotToTop::RightCurve() {
 
 }
 
-double vertBotToTop::xp(double p) {
+double RightCurve::xp(double p) {
     return 5;
 }
 
-double vertBotToTop::yp(double p) {
+double RightCurve::yp(double p) {
     return p;
 }
 
-double vertBotToTop::dxp(double p) {
+double RightCurve::dxp(double p) {
     return 0;
 }
 
-double vertBotToTop::dyp(double p) {
+double RightCurve::dyp(double p) {
     return 1;
 }

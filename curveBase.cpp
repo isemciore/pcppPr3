@@ -36,11 +36,12 @@ void curvebase::new_s_to_p_coord(double s){
     double p_next;
     double stepSize = 10;
     double intValue;
-
+    double intHelper;
+    double fprime;
     while(stepSize > 1e-10){
-        double intHelper = integrate(a_,p_curr);
+        intHelper = integrate(a_,p_curr);
         //double intHelper = intHelp(p_curr);
-        double fprime = inte_function_density(p_curr);
+        fprime = inte_function_density(p_curr);
         p_next = p_curr - (intHelper - s* arcLength_)/fprime;
 
         stepSize = fabs(p_curr-p_next);
@@ -58,7 +59,7 @@ double curvebase::inte_function_density(double p){
 
 double curvebase::integrate(double a, double b) {
     double (*fun) (double);
-    if (quickInt){
+    if (quickInt){//(Default as false)
         std::map<double,double>::iterator itLB = pToIntValues.lower_bound(b);
         double retValues;
         if (itLB==pToIntValues.end()){//Never integrated before
